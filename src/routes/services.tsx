@@ -30,7 +30,7 @@ function Services() {
             </div>
             <ul className="mt-4 space-y-2">
               {sv.scopes.map((scope) => {
-                const agent = agents.find((a) => a.capabilities.some((c) => c.split(".")[0] === sv.id || c.startsWith(sv.id))) ?? agents[0];
+                const agent = agents.find((a) => a.capabilities.some((c) => c.split(".")[0] === sv.id || c.startsWith(sv.id))) ?? agents[0]!;
                 const on = grants.some((g) => g.serviceId === sv.id && g.scope === scope);
                 return (
                   <li key={scope} className="flex items-center justify-between gap-3 text-sm">

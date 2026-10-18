@@ -15,7 +15,7 @@ export const Route = createFileRoute("/console")({
   component: Console,
 });
 
-interface Msg { from: "you" | "agent"; text: string; result?: CommandResult; approvalId?: string }
+interface Msg { from: "you" | "agent"; text: string; result?: CommandResult; approvalId?: string | undefined }
 const examples = ["Remind me to call Mum on Sunday", "Plan my Tuesday", "Give me video ideas", "Buy two concert tickets", "Send an email to Sam", "Unlock the front door"];
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
