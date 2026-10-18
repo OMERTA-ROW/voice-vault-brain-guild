@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgentsRouteImport } from './routes/agents'
+import { Route as BrainBuilderRouteImport } from './routes/brain-builder'
+import { Route as ConsoleRouteImport } from './routes/console'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InboxRouteImport } from './routes/inbox'
+import { Route as PreviewsRouteImport } from './routes/previews'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as VaultRouteImport } from './routes/vault'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgentsRoute = AgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrainBuilderRoute = BrainBuilderRouteImport.update({
+  id: '/brain-builder',
+  path: '/brain-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsoleRoute = ConsoleRouteImport.update({
+  id: '/console',
+  path: '/console',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InboxRoute = InboxRouteImport.update({
+  id: '/inbox',
+  path: '/inbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PreviewsRoute = PreviewsRouteImport.update({
+  id: '/previews',
+  path: '/previews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VaultRoute = VaultRouteImport.update({
+  id: '/vault',
+  path: '/vault',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/brain-builder': typeof BrainBuilderRoute
+  '/console': typeof ConsoleRoute
+  '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/previews': typeof PreviewsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/services': typeof ServicesRoute
+  '/vault': typeof VaultRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/brain-builder': typeof BrainBuilderRoute
+  '/console': typeof ConsoleRoute
+  '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/previews': typeof PreviewsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/services': typeof ServicesRoute
+  '/vault': typeof VaultRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agents': typeof AgentsRoute
+  '/brain-builder': typeof BrainBuilderRoute
+  '/console': typeof ConsoleRoute
+  '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
+  '/previews': typeof PreviewsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/services': typeof ServicesRoute
+  '/vault': typeof VaultRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agents'
+    | '/brain-builder'
+    | '/console'
+    | '/dashboard'
+    | '/inbox'
+    | '/previews'
+    | '/roadmap'
+    | '/services'
+    | '/vault'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agents'
+    | '/brain-builder'
+    | '/console'
+    | '/dashboard'
+    | '/inbox'
+    | '/previews'
+    | '/roadmap'
+    | '/services'
+    | '/vault'
+  id:
+    | '__root__'
+    | '/'
+    | '/agents'
+    | '/brain-builder'
+    | '/console'
+    | '/dashboard'
+    | '/inbox'
+    | '/previews'
+    | '/roadmap'
+    | '/services'
+    | '/vault'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgentsRoute: typeof AgentsRoute
+  BrainBuilderRoute: typeof BrainBuilderRoute
+  ConsoleRoute: typeof ConsoleRoute
+  DashboardRoute: typeof DashboardRoute
+  InboxRoute: typeof InboxRoute
+  PreviewsRoute: typeof PreviewsRoute
+  RoadmapRoute: typeof RoadmapRoute
+  ServicesRoute: typeof ServicesRoute
+  VaultRoute: typeof VaultRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agents': {
+      id: '/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof AgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brain-builder': {
+      id: '/brain-builder'
+      path: '/brain-builder'
+      fullPath: '/brain-builder'
+      preLoaderRoute: typeof BrainBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/console': {
+      id: '/console'
+      path: '/console'
+      fullPath: '/console'
+      preLoaderRoute: typeof ConsoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inbox': {
+      id: '/inbox'
+      path: '/inbox'
+      fullPath: '/inbox'
+      preLoaderRoute: typeof InboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/previews': {
+      id: '/previews'
+      path: '/previews'
+      fullPath: '/previews'
+      preLoaderRoute: typeof PreviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vault': {
+      id: '/vault'
+      path: '/vault'
+      fullPath: '/vault'
+      preLoaderRoute: typeof VaultRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgentsRoute: AgentsRoute,
+  BrainBuilderRoute: BrainBuilderRoute,
+  ConsoleRoute: ConsoleRoute,
+  DashboardRoute: DashboardRoute,
+  InboxRoute: InboxRoute,
+  PreviewsRoute: PreviewsRoute,
+  RoadmapRoute: RoadmapRoute,
+  ServicesRoute: ServicesRoute,
+  VaultRoute: VaultRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
