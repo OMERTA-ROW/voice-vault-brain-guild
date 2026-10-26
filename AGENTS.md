@@ -14,3 +14,4 @@
 - Command safety classification is centralized in `src/lib/commands.ts` and covered by tests — every new intent must declare a risk level.
 - Sensitive actions must route through the approval inbox with typed confirmation — never execute directly.
 - Non-landing pages wrap content in `Shell` from `src/components/shell.tsx` for consistent nav and the demo banner.
+- Role/invitation/isolation rules live in `src/lib/access.ts` (tested); the backend must enforce the same rules server-side — never trust client roles. Setup and pending schema: `docs/owner-access-setup.md`.
