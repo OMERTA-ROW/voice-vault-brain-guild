@@ -13,6 +13,7 @@ const all = [
   { to: "/inbox", label: "Approvals" },
   { to: "/previews", label: "WorkLife & CreatorLife" },
   { to: "/roadmap", label: "Architecture" },
+  { to: "/account", label: "Account" },
 ] as const;
 
 const mobile = [
