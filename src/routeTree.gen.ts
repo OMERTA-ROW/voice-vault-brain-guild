@@ -10,24 +10,39 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AgentsRouteImport } from './routes/agents'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BrainBuilderRouteImport } from './routes/brain-builder'
 import { Route as ConsoleRouteImport } from './routes/console'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as InboxRouteImport } from './routes/inbox'
 import { Route as PreviewsRouteImport } from './routes/previews'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as VaultRouteImport } from './routes/vault'
+import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as InviteTokenRouteImport } from './routes/invite.$token'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AgentsRoute = AgentsRouteImport.update({
   id: '/agents',
   path: '/agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BrainBuilderRoute = BrainBuilderRouteImport.update({
@@ -55,6 +70,11 @@ const PreviewsRoute = PreviewsRouteImport.update({
   path: '/previews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
@@ -70,94 +90,145 @@ const VaultRoute = VaultRouteImport.update({
   path: '/vault',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAccountRoute = AuthenticatedAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const InviteTokenRoute = InviteTokenRouteImport.update({
+  id: '/invite/$token',
+  path: '/invite/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agents': typeof AgentsRoute
+  '/auth': typeof AuthRoute
   '/brain-builder': typeof BrainBuilderRoute
   '/console': typeof ConsoleRoute
   '/dashboard': typeof DashboardRoute
   '/inbox': typeof InboxRoute
   '/previews': typeof PreviewsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/services': typeof ServicesRoute
   '/vault': typeof VaultRoute
+  '/account': typeof AuthenticatedAccountRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/invite/$token': typeof InviteTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agents': typeof AgentsRoute
+  '/auth': typeof AuthRoute
   '/brain-builder': typeof BrainBuilderRoute
   '/console': typeof ConsoleRoute
   '/dashboard': typeof DashboardRoute
   '/inbox': typeof InboxRoute
   '/previews': typeof PreviewsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/services': typeof ServicesRoute
   '/vault': typeof VaultRoute
+  '/account': typeof AuthenticatedAccountRoute
+  '/admin': typeof AuthenticatedAdminRoute
+  '/invite/$token': typeof InviteTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/agents': typeof AgentsRoute
+  '/auth': typeof AuthRoute
   '/brain-builder': typeof BrainBuilderRoute
   '/console': typeof ConsoleRoute
   '/dashboard': typeof DashboardRoute
   '/inbox': typeof InboxRoute
   '/previews': typeof PreviewsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/services': typeof ServicesRoute
   '/vault': typeof VaultRoute
+  '/_authenticated/account': typeof AuthenticatedAccountRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/invite/$token': typeof InviteTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/agents'
+    | '/auth'
     | '/brain-builder'
     | '/console'
     | '/dashboard'
     | '/inbox'
     | '/previews'
+    | '/reset-password'
     | '/roadmap'
     | '/services'
     | '/vault'
+    | '/account'
+    | '/admin'
+    | '/invite/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agents'
+    | '/auth'
     | '/brain-builder'
     | '/console'
     | '/dashboard'
     | '/inbox'
     | '/previews'
+    | '/reset-password'
     | '/roadmap'
     | '/services'
     | '/vault'
+    | '/account'
+    | '/admin'
+    | '/invite/$token'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/agents'
+    | '/auth'
     | '/brain-builder'
     | '/console'
     | '/dashboard'
     | '/inbox'
     | '/previews'
+    | '/reset-password'
     | '/roadmap'
     | '/services'
     | '/vault'
+    | '/_authenticated/account'
+    | '/_authenticated/admin'
+    | '/invite/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AgentsRoute: typeof AgentsRoute
+  AuthRoute: typeof AuthRoute
   BrainBuilderRoute: typeof BrainBuilderRoute
   ConsoleRoute: typeof ConsoleRoute
   DashboardRoute: typeof DashboardRoute
   InboxRoute: typeof InboxRoute
   PreviewsRoute: typeof PreviewsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RoadmapRoute: typeof RoadmapRoute
   ServicesRoute: typeof ServicesRoute
   VaultRoute: typeof VaultRoute
+  InviteTokenRoute: typeof InviteTokenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -169,11 +240,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/agents': {
       id: '/agents'
       path: '/agents'
       fullPath: '/agents'
       preLoaderRoute: typeof AgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brain-builder': {
@@ -211,6 +296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PreviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
@@ -232,20 +324,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VaultRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/account': {
+      id: '/_authenticated/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AuthenticatedAccountRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/invite/$token': {
+      id: '/invite/$token'
+      path: '/invite/$token'
+      fullPath: '/invite/$token'
+      preLoaderRoute: typeof InviteTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAccountRoute: AuthenticatedAccountRoute,
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AgentsRoute: AgentsRoute,
+  AuthRoute: AuthRoute,
   BrainBuilderRoute: BrainBuilderRoute,
   ConsoleRoute: ConsoleRoute,
   DashboardRoute: DashboardRoute,
   InboxRoute: InboxRoute,
   PreviewsRoute: PreviewsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RoadmapRoute: RoadmapRoute,
   ServicesRoute: ServicesRoute,
   VaultRoute: VaultRoute,
+  InviteTokenRoute: InviteTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
